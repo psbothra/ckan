@@ -27,7 +27,7 @@
   crossorigin="anonymous"></script>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-2.5.0/dt-1.10.13/b-1.2.4/b-colvis-1.2.4/b-flash-1.2.4/b-html5-1.2.4/b-print-1.2.4/fc-3.2.2/fh-3.1.2/kt-2.2.0/r-2.1.1/se-1.2.0/datatables.min.css"/>
- <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-2.5.0/dt-1.10.13/b-1.2.4/b-colvis-1.2.4/b-flash-1.2.4/b-html5-1.2.4/b-print-1.2.4/fc-3.2.2/fh-3.1.2/kt-2.2.0/r-2.1.1/se-1.2.0/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-2.5.0/dt-1.10.13/b-1.2.4/b-colvis-1.2.4/b-flash-1.2.4/b-html5-1.2.4/b-print-1.2.4/fc-3.2.2/fh-3.1.2/kt-2.2.0/r-2.1.1/se-1.2.0/datatables.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -60,6 +60,28 @@ $(document).ready(function() {
   );
 });
 </script>
+
+<style>
+.dt-buttons .btn-default {
+  background-color: #288BE4;
+  color: #ffffff;
+}
+.dt-buttons .btn-default:hover {
+  background-color: #fb4d42;
+  color: #ffffff;
+}
+@media (min-width: 767px) {
+  .dt-buttons {
+    float: right;
+  }
+  div.dataTables_wrapper div.dataTables_info {
+    float: left;
+  }
+  div.dataTables_wrapper div.dataTables_filter {
+    padding-top: 8px;
+  }
+}
+</style>
 {% endblock %}
 
 {% block styles %}{% endblock %}
