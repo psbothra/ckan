@@ -1201,7 +1201,13 @@ def dataset_link(package_or_package_dict):
 # TODO: (?) support resource objects as well
 def resource_display_name(resource_dict):
     name = resource_dict.get('name', None)
+    if not name:
+        name_translated = resource_dict.get('name_translated', {})
+        name = name_translated.get('en', None)
     description = resource_dict.get('description', None)
+    if not description:
+        description_translated = resource_dict.get('description_translated', {})
+        description = description_translated.get('en', None)
     if name:
         return name
     elif description:
