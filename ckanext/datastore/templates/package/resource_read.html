@@ -9,13 +9,13 @@
         <thead>
           <tr>
             <th scope="col">{{ _('Column') }}</th>
-            <th scope="col">{{ _('Type') }}</th>
+            <th scope="col" width="100px">{{ _('Type') }}</th>
             <th scope="col">{{ _('Label') }}</th>
             <th scope="col">{{ _('Description') }}</th>
           </tr>
         </thead>
         {% for f in ddict %}
-          <tr {% if loop.index > 4 %}class="toggle-more"{% endif %}>
+          <tr {% if loop.index > 5 %}class="toggle-more"{% endif %}>
             <td>{{ f.id }}</td>
             <td>{{ f.type }}</td>
             <td>{{ f.get('info', {}).label }}</td>
