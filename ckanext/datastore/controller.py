@@ -150,5 +150,6 @@ class DatastoreController(BaseController):
         wr = unicodecsv.writer(response, encoding=u'utf-8')
         wr.writerow(col for col in header)
         for field in fields:
-            row = [field['id'], field['type'], field['info']['label'], field['info']['notes']]
+            field_info = field.get('info',{})
+            row = [field['id'], field['type'], field_info.get('label',''), field_info.get('notes','')]
             wr.writerow(item for item in row)
