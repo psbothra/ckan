@@ -63,9 +63,11 @@ CREATE OR REPLACE VIEW "_table_metadata" AS
         LEFT OUTER JOIN pg_class AS dependent ON d.refobjid = dependent.oid
     WHERE
         (dependee.oid != dependent.oid OR dependent.oid IS NULL) AND
-        (dependee.relname IN (SELECT tablename FROM pg_catalog.pg_tables)
-            OR dependee.relname IN (SELECT viewname FROM pg_catalog.pg_views)) AND
-        dependee.relnamespace = (SELECT oid FROM pg_namespace WHERE nspname='public')
+        -- is a table, view or materialized view
+        (dependee.relkind = 'r'::"char" OR dependee.relkind = 'v'::"char"
+            OR dependee.relkind = 'm'::"char")
+        AND dependee.relnamespace = (
+            SELECT oid FROM pg_namespace WHERE nspname='public')
     ORDER BY dependee.oid DESC;
 ALTER VIEW "_table_metadata" OWNER TO {writeuser};
 GRANT SELECT ON "_table_metadata" TO {readuser};
