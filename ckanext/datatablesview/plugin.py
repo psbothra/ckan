@@ -8,7 +8,7 @@ import ckan.plugins.toolkit as toolkit
 
 default = toolkit.get_validator(u'default')
 boolean_validator = toolkit.get_validator(u'boolean_validator')
-ignore_empty = p.toolkit.get_validator('ignore_empty')
+ignore_missing = toolkit.get_validator(u'ignore_missing')
 
 
 class DataTablesView(p.SingletonPlugin):
@@ -25,6 +25,7 @@ class DataTablesView(p.SingletonPlugin):
         template directory for the view
         '''
         toolkit.add_template_directory(config, u'templates')
+        toolkit.add_resource(u'public', u'ckanext-datatablesview')
 
     def can_view(self, data_dict):
         resource = data_dict['resource']
@@ -47,7 +48,8 @@ class DataTablesView(p.SingletonPlugin):
             u'schema': {
                 u'responsive': [default(False), boolean_validator],
                 u'export_buttons': [default(True), boolean_validator],
-                u'show_fields': [ignore_empty],
+                u'show_fields': [ignore_missing],
+                u'filterable': [default(True), boolean_validator],
             }
         }
 
