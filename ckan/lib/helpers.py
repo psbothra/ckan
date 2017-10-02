@@ -885,6 +885,8 @@ def markdown_extract(text, extract_length=190):
     if not text:
         return ''
     plain = RE_MD_HTML_TAGS.sub('', markdown(text))
+    if plain.endswith("MORE INFO"):
+        plain = plain[:-10]
     if not extract_length or len(plain) < extract_length:
         return literal(plain)
     return literal(unicode(truncate(plain, length=extract_length,
@@ -1223,7 +1225,13 @@ def dataset_link(package_or_package_dict):
 # TODO: (?) support resource objects as well
 def resource_display_name(resource_dict):
     name = resource_dict.get('name', None)
+    if not name:
+        name_translated = resource_dict.get('name_translated', {})
+        name = name_translated.get('en', None)
     description = resource_dict.get('description', None)
+    if not description:
+        description_translated = resource_dict.get('description_translated', {})
+        description = description_translated.get('en', None)
     if name:
         return name
     elif description:
