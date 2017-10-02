@@ -22,6 +22,9 @@
       data-fixed-header="true"
       data-fixed-columns="true"
       data-dom='"Blifrtip"'
+      data-scroll-y="1000px"
+      data-scroll-collapse="true"
+      data-length-menu='[ 10, 50, 100, 500, 1000 ]'
       data-buttons='[
         {
           "extend": "colvis",
@@ -50,6 +53,14 @@
 {% block styles %}{% endblock %}
 {% block custom_styles %}
 <style>
+  .dt-buttons .btn-default {
+    background-color: #288BE4;
+    color: #ffffff;
+  }
+  .dt-buttons .btn-default:hover {
+    background-color: #fb4d42;
+    color: #ffffff;
+  }
   @media (min-width: 767px) {
     .dt-buttons {
       float: right;
