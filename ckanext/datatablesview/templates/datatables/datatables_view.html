@@ -48,4 +48,18 @@
 {% endblock %}
 
 {% block styles %}{% endblock %}
-{% block custom_styles %}{% endblock %}
+{% block custom_styles %}
+<style>
+  @media (min-width: 767px) {
+    .dt-buttons {
+      float: right;
+    }
+    div.dataTables_wrapper div.dataTables_info {
+      float: left;
+    }
+    div.dataTables_wrapper div.dataTables_filter {
+      padding-top: 8px;
+    }
+  }
+</style>
+{% endblock %}
