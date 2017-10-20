@@ -40,13 +40,14 @@ class DataTablesView(p.SingletonPlugin):
     def info(self):
         return {
             u'name': u'datatables_view',
-            u'title': u'Table',
+            u'title': u'Data Table',
             u'filterable': True,
             u'icon': u'table',
             u'requires_datastore': True,
-            u'default_title': p.toolkit._(u'Table'),
+            u'default_title': p.toolkit._(u'Data Table'),
             u'schema': {
                 u'responsive': [default(False), boolean_validator],
+                u'export_buttons': [default(True), boolean_validator],
                 u'show_fields': [ignore_missing],
                 u'filterable': [default(True), boolean_validator],
             }
