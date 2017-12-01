@@ -154,7 +154,7 @@ class DatastoreController(BaseController):
         if hasattr(response, u'headers'):
             response.headers['Content-Type'] = b'text/csv; charset=utf-8'
             response.headers['Content-disposition'] = (
-                b'attachment; filename="{name}.csv"'.format(name=resource_id))
+                b'attachment; filename="{name}-data-dictionary.csv"'.format(name=resource_id))
 
         wr = unicodecsv.writer(response, encoding=u'utf-8')
         wr.writerow(col for col in header)
