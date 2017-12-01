@@ -5,7 +5,10 @@
     <section class="module data-dictionary">
       {% set ddict=h.datastore_dictionary(res.id) %}
       <div class="module-content">
-        <h2>{{ _('Data Dictionary') }}</h2>
+        <h2>
+          {{ _('Data Dictionary') }}
+          <a class="btn btn-primary btn-small" href="/datastore/dictionary_download/{{res.id}}">Download</a>
+        </h2>
         <table class="table table-striped table-bordered table-condensed" data-module="table-toggle-more">
           <thead>
             <tr>
