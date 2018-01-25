@@ -25,7 +25,7 @@
           </tr>
         </thead>
         {% for f in ddict %}
-          <tr>
+          <tr {% if loop.index > 5 %}class="toggle-more"{% endif %}>
             <td>{{ f.id }}</td>
             <td>{{ f.type }}</td>
             <td>{{ h.get_translated(f.get('info', {}), 'label') }}</td>
