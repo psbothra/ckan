@@ -47,7 +47,7 @@ this.ckan.module('image-upload', function($) {
       this.is_data_resource = (this.options.field_url === 'url') && (this.options.field_upload === 'upload');
       this.field_query = $(field_query).parents('.control-group');
       this.field_query_input = $(field_query)[0];
-      this.field_format = $('input[name="format"]').parents('.form-group');
+      this.field_format = $('input[name="format"]').parents('.control-group');
 
       // Is there a clear checkbox on the form already?
       var checkbox = $(field_clear, this.el);
