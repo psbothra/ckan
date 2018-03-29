@@ -47,7 +47,7 @@ class DataTablesView(p.SingletonPlugin):
             u'default_title': p.toolkit._(u'Data Table'),
             u'schema': {
                 u'responsive': [default(False), boolean_validator],
-                u'export_buttons': [default(False), boolean_validator],
+                u'export_buttons': [default(True), boolean_validator],
                 u'show_fields': [ignore_missing],
                 u'filterable': [default(True), boolean_validator],
             }
