@@ -19,9 +19,13 @@
         data-responsive="false"
         data-scroll-x="true"
       {% endif %}
+      {% if resource_view.get('col_reorder') %}
+        data-col-reorder="true"
+      {% else %}
+        data-col-reorder="false"
+      {% endif %}
       data-fixed-header="true"
       data-fixed-columns="true"
-      data-col-reorder="true"
       data-dom='"Blifrtip"'
       data-buttons='[
         {
